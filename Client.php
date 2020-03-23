@@ -48,6 +48,11 @@ class Client extends Component
     public $httpclient = 'httpclient';
 
     /**
+     * @var bool Emulate sending
+     */
+    public $emulateSending = true;
+
+    /**
      * @inheritdoc
      * @throws InvalidConfigException
      */
@@ -59,8 +64,10 @@ class Client extends Component
             if (!isset($this->httpclient['class'])) {
                 $this->httpclient['class'] = 'yii\httpclient\Client';
             }
+
             $this->httpclient = Yii::createObject($this->httpclient);
         }
+
         if (!$this->httpclient instanceof \yii\httpclient\Client) {
             throw new InvalidConfigException("Client::httpclient must be either a Http client instance or the application component ID of a Http client.");
         }
@@ -75,11 +82,12 @@ class Client extends Component
      */
     public function send($text = null, $emoji = null, $attachments = [], $channel = null)
     {
-        $this->httpclient->post($this->url, [
-            'payload' => Json::encode($this->getPayload($text, $emoji, $attachments, $channel)),
-        ])->send();
+        if (!$this->emulateSending) {
+            $this->httpclient->post($this->url, [
+                'payload' => Json::encode($this->getPayload($text, $emoji, $attachments, $channel)),
+            ])->send();
+        }
     }
-
 
     protected function getPayload($text = null, $emoji = null, $attachments = [], $channel = null)
     {
