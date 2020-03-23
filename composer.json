@@ -1,5 +1,5 @@
 {
-  "name": "SmartFreedom/yii2-slack",
+  "name": "smart-freedom/yii2-slack",
   "description": "Yii2 slack client",
   "type": "extension",
   "minimum-stability": "stable",
