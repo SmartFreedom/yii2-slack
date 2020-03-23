@@ -2,7 +2,7 @@
   "name": "SmartFreedom/yii2-slack",
   "description": "Yii2 slack client",
   "type": "extension",
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "require": {
     "php": ">=5.4.0",
     "yiisoft/yii2": ">=2.0.0",
