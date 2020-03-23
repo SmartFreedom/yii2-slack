@@ -5,7 +5,7 @@
  * @license https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
  */
 
-namespace understeam\slack;
+namespace SmartFreedom\Slack;
 
 use Yii;
 use yii\base\Component;

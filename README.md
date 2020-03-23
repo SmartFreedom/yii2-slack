@@ -48,7 +48,7 @@ Configure component:
 ...
     'components' => [
         'slack' => [
-            'class' => 'understeam\slack\Client',
+            'class' => 'SmartFreedom\Slack\Client',
             'url' => '<slack incoming webhook url here>',
             'username' => 'My awesome application',
         ],
@@ -79,7 +79,7 @@ Also you can use slack as a log target:
         'traceLevel' => 3,
         'targets' => [
             [
-                'class' => 'understeam\slack\LogTarget',
+                'class' => 'SmartFreedom\Slack\LogTarget',
                 'categories' => ['commandBus'],
                 'exportInterval' => 1, // Send logs on every message
                 'logVars' => [],
